@@ -9,6 +9,7 @@ from langchain_core.messages import AIMessage, HumanMessage, SystemMessage
 
 load_dotenv()  
 
+# Determine which collection to use based on the environment variable
 if os.getenv("USE_BRIGHTDATA", "False") == "True":
     collection_name = os.getenv("COLLECTION_NAME_BRIGHTDATA")
 else:
@@ -38,7 +39,7 @@ You will receive:
 2. A user question.
 
 Your task:
-- Provide concise and informative responses based on the retrieved information
+- Provide concise and informative responses based on the retrieved information.
 - Always cite sources at the end of your response in this format: "Source: <URL>".
 - If the retrieved information doesn't help answer the question, respond with "I don't know" instead of guessing, without providing a source.
 

@@ -52,7 +52,7 @@ pip3 install -r requirements.txt
 ```
 python3 1_scraping_wikipedia.py
 python3 2_chunking_embedding_ingestion.py
-streamlit run 3_chatbot.py (most basic version, the chatbot cannot relate questions to previous ones since it does not have any kind of memory/state).
-streamlit run 3_memory_chatbot.py (improved version, the chatbot is able to handle follow-up questions since it stores the previous messages in the state and the questions are internally reformulated, if needed, to be standalone).
-streamlit run 3_agentic_chatbot.py (Pending to be fixed).
+streamlit run 3_chatbot.py (basic version — performs a direct similarity search on each question independently. Has no memory, so follow-up questions like "tell me more" will not work).
+streamlit run 3_memory_chatbot.py (memory version — stores the full conversation history and uses the LLM to rewrite each follow-up question into a standalone query before searching, enabling coherent multi-turn conversations).
+streamlit run 3_agentic_chatbot.py (agentic version — uses an agent that autonomously decides when and how to call a retrieval tool to fetch relevant knowledge base content. Handles follow-up questions by enriching the search query with context from the conversation history).
 ```
